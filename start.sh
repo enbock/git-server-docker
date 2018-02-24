@@ -19,5 +19,7 @@ if [ "$(ls -A /git-server/repos/)" ]; then
   find . -type d -exec chmod g+s '{}' +
 fi
 
+relink_projects.sh
+
 # -D flag avoids executing sshd as a daemon
 /usr/sbin/sshd -D

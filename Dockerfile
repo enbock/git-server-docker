@@ -35,6 +35,9 @@ COPY git-shell-commands /home/git/git-shell-commands
 # sshd_config file is edited for enable access key and disable access password
 COPY sshd_config /etc/ssh/sshd_config
 COPY start.sh start.sh
+COPY relink_projects.sh /usr/bin/relink_projects.sh
+
+RUN chmod +x /usr/bin/relink_projects.sh start.sh ~git/git-shell-commands/*
 
 EXPOSE 22
 

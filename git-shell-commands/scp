@@ -1,0 +1,5 @@
+#!/bin/sh
+
+/usr/bin/scp "$@"
+
+relink_projects.sh

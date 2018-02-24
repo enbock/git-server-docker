@@ -1,0 +1,15 @@
+#!/bin/sh
+
+DIR=/git-server/repos/$1
+echo -en "Remove repository $DIR [y/N]? "
+read yn
+
+if test "$yn" == "y"
+then
+  rm -rf $DIR
+  rm ~git/$1
+  echo "Repository $1 removed."
+  relink_projects.sh
+else
+  echo "Removal aborted."
+fi

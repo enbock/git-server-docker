@@ -1,13 +1,13 @@
 # git-server-docker
-A lightweight Git Server Docker image built with Alpine Linux. Available on [GitHub](https://github.com/jkarlosb/git-server-docker) and [Docker Hub](https://hub.docker.com/r/jkarlos/git-server-docker/)
+A lightweight Git Server Docker image built with Alpine Linux. Available on [GitHub](https://github.com/enbock/git-server-docker) and [Docker Hub](https://hub.docker.com/r/enbock/git-server-docker/)
 
-!["image git server docker" "git server docker"](https://raw.githubusercontent.com/jkarlosb/git-server-docker/master/git-server-docker.jpg)
+!["image git server docker" "git server docker"](https://raw.githubusercontent.com/enbock/git-server-docker/master/git-server-docker.jpg)
 
 ### Basic Usage
 
 How to run the container in port 2222 with two volumes: keys volume for public keys and repos volume for git repositories:
 
-	$ docker run -d -p 2222:22 -v ~/git-server/keys:/git-server/keys -v ~/git-server/repos:/git-server/repos jkarlos/git-server-docker
+	$ docker run -d -p 2222:22 -v ~/git-server/keys:/git-server/keys -v ~/git-server/repos:/git-server/repos enbock/git-server-docker
 
 How to use a public key:
 
@@ -38,13 +38,13 @@ How to create a new repo:
 How to upload a repo:
 
 	From host:
-	$ mv myrepo.git ~/git-server/repos
+	$ mv myrepo.git /git-server/repos
 	From remote:
-	$ scp -r myrepo.git user@host:~/git-server/repos
+	$ scp -r myrepo.git git@<ip-docker-server>:2222:/git-server/repos
 
 How clone a repository:
 
-	$ git clone ssh://git@<ip-docker-server>:2222/git-server/repos/myrepo.git
+	$ git clone ssh://git@<ip-docker-server>:2222/myrepo.git
 
 ### Arguments
 
